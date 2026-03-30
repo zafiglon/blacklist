@@ -4,7 +4,8 @@ START=99
 
 start () {
     echo "" > /tmp/dnsmasq.d/domains.lst
-    cat /overlay/blacklist.txt > /tmp/dnsmasq.d/domains.lst
+    wget https://raw.githubusercontent.com/zafiglon/blacklist/refs/heads/main/blacklist.txt > /tmp/dnsmasq.d/domains.lst
+#    cat /overlay/blacklist.txt > /tmp/dnsmasq.d/domains.lst
 
 #    DOMAINS=https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-dnsmasq-nfset.lst
 #    count=0
