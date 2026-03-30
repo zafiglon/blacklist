@@ -1,0 +1,49 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+
+start () {
+    echo "" > /tmp/dnsmasq.d/domains.lst
+    cat /overlay/blacklist.txt > /tmp/dnsmasq.d/domains.lst
+
+#    DOMAINS=https://raw.githubusercontent.com/itdoginfo/allow-domains/main/Russia/inside-dnsmasq-nfset.lst
+#    count=0
+#    while true; do
+#        if curl -m 3 github.com; then
+#            curl -f $DOMAINS --output /tmp/dnsmasq.d/domains.lst
+#            echo 'nftset=/4pda.to/4#inet#fw4#vpn_domains' >> /tmp/dnsmasq.d/domains.lst
+#            echo 'nftset=/joyreactor.cc/4#inet#fw4#vpn_domains' >> /tmp/dnsmasq.d/domains.lst
+#            #echo 'nftset=/youtube.com/4#inet#fw4#vpn_domains' >> /tmp/dnsmasq.d/domains.lst
+#           echo "domain filter ok"
+#            break
+#        else
+#            echo "GitHub is not available. Check the internet availability [$count]"
+#            count=$((count+1))
+#        fi
+#    done
+
+    if dnsmasq --conf-file=/tmp/dnsmasq.d/domains.lst --test 2>&1 | grep -q "syntax check OK"; then
+        /etc/init.d/dnsmasq restart
+        nft add element inet fw4 vpn_domains {209.85.233.136}
+        nft add element inet fw4 vpn_domains {64.233.164.105}
+        nft add element inet fw4 vpn_domains {173.194.221.190}
+        nft add element inet fw4 vpn_domains { \
+            91.108.56.0/22, \
+            91.108.4.0/22, \
+            91.108.8.0/22, \
+            91.108.16.0/22, \
+            91.108.12.0/22, \
+            149.154.160.0/20, \
+            91.105.192.0/23, \
+            91.108.20.0/22, \
+            185.76.151.0/24 \
+        }
+#        nft delete element inet fw4 vpn_domains {176.58.54.217}
+#        nft delete element inet fw4 vpn_domains {176.58.48.48}
+#        nft delete element inet fw4 vpn_domains {185.190.188.205}
+#        nft delete element inet fw4 vpn_domains {176.58.41.37}
+#        nft delete element inet fw4 vpn_domains {185.190.188.209}
+#        nft delete element inet fw4 vpn_domains {176.58.54.205}
+#        nft delete element inet fw4 vpn_domains {176.58.54.217}
+    fi
+}
