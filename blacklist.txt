@@ -1,3 +1,4 @@
+nftset=/chromewebstore.google.com/4#inet#fw4#vpn_domains
 nftset=/notepad-plus-plus.org/4#inet#fw4#vpn_domains
 nftset=/mydia.jr-odekake.net/4#inet#fw4#vpn_domains
 nftset=/www.vjw.digital.go.jp/4#inet#fw4#vpn_domains
