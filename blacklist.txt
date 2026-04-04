@@ -1,3 +1,4 @@
+nftset=/barbora.lt/4#inet#fw4#vpn_domains
 nftset=/azul.com/4#inet#fw4#vpn_domains
 nftset=/chromewebstore.google.com/4#inet#fw4#vpn_domains
 nftset=/notepad-plus-plus.org/4#inet#fw4#vpn_domains
