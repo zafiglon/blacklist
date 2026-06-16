@@ -1,3 +1,4 @@
+nftset=/bbc.com/4#inet#fw4#vpn_domains
 nftset=/skilljar.com/4#inet#fw4#vpn_domains
 nftset=/gemini.google.com/4#inet#fw4#vpn_domains
 nftset=/payment.ecommerce.sebgroup.com/4#inet#fw4#vpn_domains
