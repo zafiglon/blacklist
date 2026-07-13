@@ -1,3 +1,4 @@
+nftset=/visa-immigration.service.gov.uk/4#inet#fw4#vpn_domains
 nftset=/bbc.com/4#inet#fw4#vpn_domains
 nftset=/skilljar.com/4#inet#fw4#vpn_domains
 nftset=/gemini.google.com/4#inet#fw4#vpn_domains
